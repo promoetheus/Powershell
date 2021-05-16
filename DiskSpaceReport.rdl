@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>Shows Disk Statistics </Description>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ADMIN_DataSource">
+      <DataSourceReference>ADMINDS</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>2e65565c-abe6-416b-b8d2-17eb3c081f0b</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>ADMIN_DataSource</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>usp_DBA_DiskStatisticsReport_SSRS</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="DateTimeRun">
+          <DataField>DateTimeRun</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ServerName">
+          <DataField>ServerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DiskName">
+          <DataField>DiskName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DiskLabel">
+          <DataField>DiskLabel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CapacityGB">
+          <DataField>CapacityGB</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="FreeSpaceGB">
+          <DataField>FreeSpaceGB</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="FreeSpacePercent">
+          <DataField>FreeSpacePercent</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="table1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.43695in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.34196in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.20238in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.20238in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.03571in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.19196in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.20238in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.22in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Date Time Run</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Server Name</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Disk Name</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Disk Label</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Capacity GB</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Free Space GB</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Free Space Percent</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.21in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DateTimeRun">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FORMAT(Fields!DateTimeRun.Value,"dd/MM/yyyy hh:mm:ss")</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DateTimeRun</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ServerName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ServerName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ServerName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DiskName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DiskName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DiskName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DiskLabel">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DiskLabel.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DiskLabel</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CapacityGB">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CapacityGB.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CapacityGB</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="FreeSpaceGB">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FreeSpaceGB.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FreeSpaceGB</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="FreeSpacePercent">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FreeSpacePercent.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FreeSpacePercent</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>= SWITCH(Fields!FreeSpacePercent.Value &lt; 5, "RED", Fields!FreeSpacePercent.Value&gt;=5 AND Fields!FreeSpacePercent.Value &lt; 10, "ORANGE", Fields!FreeSpacePercent.Value&gt;=10 AND Fields!FreeSpacePercent.Value &lt; 15, "YELLOW", Fields!FreeSpacePercent.Value &gt;= 15, "WHITE")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="table1_Details_Group">
+                    <DataElementName>Detail</DataElementName>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0.38778in</Top>
+            <Height>0.43in</Height>
+            <Width>8.61372in</Width>
+            <Style />
+          </Tablix>
+          <Textbox Name="textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>HCG - Disk Status Report</Value>
+                    <Style>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>SteelBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>textbox1</rd:DefaultName>
+            <Top>0.00001cm</Top>
+            <Left>3.15736cm</Left>
+            <Height>0.36in</Height>
+            <Width>5.83646in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="Image1">
+            <Source>Embedded</Source>
+            <Value>mssql</Value>
+            <Sizing>FitProportional</Sizing>
+            <Left>0.01389in</Left>
+            <Height>0.38778in</Height>
+            <Width>1.22917in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image2">
+            <Source>Embedded</Source>
+            <Value>wplogo</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.08333in</Top>
+            <Left>7.31146in</Left>
+            <Height>0.27667in</Height>
+            <Width>1.19792in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image4">
+            <Source>Embedded</Source>
+            <Value>wplogo</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>1.36583in</Top>
+            <Left>7.33646in</Left>
+            <Height>0.27667in</Height>
+            <Width>1.19792in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+        </ReportItems>
+        <Height>2.23486in</Height>
+        <Style />
+      </Body>
+      <Width>8.72624in</Width>
+      <Page>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <EmbeddedImages>
+    <EmbeddedImage Name="wplogo">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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
+8IyTjPktJRTlFtNyjJpfDa7uUUUV2nzh/9k=</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="mssql">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportServerUrl>http://ukdc1-pc-srs01/ReportServer_ADMIN</rd:ReportServerUrl>
+  <rd:ReportID>74c38793-026b-4fd2-830b-73607751c499</rd:ReportID>
+</Report>
